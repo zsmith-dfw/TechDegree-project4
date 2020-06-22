@@ -3,5 +3,12 @@ class Phrase {
         this.phrase = phrase.toLowerCase(phrase)
 
     }
+/**
+* Display phrase on game board
+*/
+addPhraseToDisplay() {
+
+};
+
 
 }
