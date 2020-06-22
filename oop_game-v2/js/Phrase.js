@@ -7,11 +7,12 @@ class Phrase {
 * Display phrase on game board
 */
 addPhraseToDisplay() {
-const characters = Game.phrases.split("")
+const phraseId = document.getElementById('phrase')
+const characters = this.phrase.split("")
+console.log(characters)
 const regex = new RegExp(/[a-z]/i)
 for (let i = 0; i < characters; i++) {
     if (regex.test(characters[i])) {
-        const phraseId = document.getElementById('phrase')
         let li = document.createElement('li')
         li.className = `hide letter ${characters[i]}`
         phraseId.appendChild(li)
