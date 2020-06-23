@@ -14,7 +14,7 @@ console.log(listId)
 const characters = this.phrase.split("")
 console.log(characters)
 const regex = new RegExp(/[a-z]/i)
-    for (let i = 0; i < characters; i++) {
+    for (let i = 0; i < characters.length; i++) {
             if (regex.test(characters[i])) {
                 let li = document.createElement('li')
                 li.className = `hide letter ${characters[i]}`
