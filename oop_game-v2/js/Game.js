@@ -30,11 +30,18 @@ getRandomPhrase() {
 * Begins game by selecting a random phrase and displaying it to user
 */
 startGame() {
+console.log(this)
 const hideStart = document.querySelector('#overlay')
 hideStart.style.display = 'none'
 this.getRandomPhrase()
-Phrase.getRandomPhrase(Phrase)
-return this.activePhrase
+this.activePhrase = this.getRandomPhrase()
+Phrase.addPhraseToDisply()
+// console.log(Phrase.addPhraseToDisplay())
+// Phrase.phrase.addPhraseToDisplay()
+// console.log(phrase.addPhraseToDisplay)
+// this.activePhrase = addPhraseToDisplay()
+
+// return this.activePhrase
 
 
 
@@ -43,3 +50,4 @@ return this.activePhrase
 
 }
 
+// return this.activePhrase.phrase
