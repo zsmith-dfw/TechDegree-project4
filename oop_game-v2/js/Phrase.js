@@ -50,7 +50,7 @@ checkLetter(letter) {
 */
 showMatchedLetter(letter) {
 
-    if (this.checkLetter() = true) {
+    if (this.checkLetter() === true) {
         this.li.className = `show letter ${letter}`
 
     }
@@ -58,3 +58,5 @@ showMatchedLetter(letter) {
 };
 }
 
+// if (this.checkLetter() = true) {
+//     this.li.className = `show letter ${letter}`

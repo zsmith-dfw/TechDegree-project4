@@ -41,8 +41,8 @@ this.activePhrase.addPhraseToDisplay(Phrase)
 };
 
 handleInteraction () {
-
-
+    checkLetter(letter)
+    showMatchedLetter(letter)
 
 }
 
