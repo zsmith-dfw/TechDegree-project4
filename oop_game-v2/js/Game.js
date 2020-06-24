@@ -35,18 +35,35 @@ const hideStart = document.querySelector('#overlay')
 hideStart.style.display = 'none'
 this.getRandomPhrase()
 this.activePhrase = this.getRandomPhrase()
-Phrase.addPhraseToDisply()
-// console.log(Phrase.addPhraseToDisplay())
-// Phrase.phrase.addPhraseToDisplay()
-// console.log(phrase.addPhraseToDisplay)
-// this.activePhrase = addPhraseToDisplay()
-
-// return this.activePhrase
-
-
+this.activePhrase.addPhraseToDisplay(Phrase)
 
 
 };
+
+handleInteraction () {
+
+
+
+}
+
+/**
+* Checks for winning move
+* @return {boolean} True if game has been won, false if game wasn't
+won
+*/
+checkForWin() {};
+/**
+* Increases the value of the missed property
+* Removes a life from the scoreboard
+* Checks if player has remaining lives and ends game if player is out
+*/
+removeLife() {};
+
+/**
+* Displays game over message
+* @param {boolean} gameWon - Whether or not the user won the game
+*/
+gameOver(gameWon) {};
 
 }
 
