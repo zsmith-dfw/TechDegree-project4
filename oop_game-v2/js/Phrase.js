@@ -7,7 +7,7 @@ class Phrase {
 * Display phrase on game board
 */
 addPhraseToDisplay() {
-const phraseId = document.querySelector('#phrase') // probably don't need this anymore
+// const phraseId = document.querySelector('#phrase') // probably don't need this anymore
 const listId = document.querySelector('ul')
 listId.className ='letters'
 console.log(listId)
@@ -18,6 +18,7 @@ const regex = new RegExp(/[a-z]/i)
             if (regex.test(characters[i])) {
                 let li = document.createElement('li')
                 li.className = `hide letter ${characters[i]}`
+                li.setAttribute("name", `${characters[i]}` ) // setting the list items to a custom attribute with only the letter
                 listId.appendChild(li)
                 
             } else {
@@ -27,7 +28,6 @@ const regex = new RegExp(/[a-z]/i)
             }
         }
     }
-
 /**
 * Checks if passed letter is in phrase
 * @param (string) letter - Letter to check
@@ -46,14 +46,12 @@ checkLetter(letter) {
 * @param (string) letter - Letter to display
 */
 showMatchedLetter(letter) {
-        let letterMatch = document.querySelectorAll('.letters li')
-        console.log(letterMatch)
-        for (let i = 0; i < letterMatch.length; i ++) {
-         if (this.checkLetter(letterMatch[i]) === true) {
-                letterMatch.className = `show letter ${letterMatch[i]}`
+        let letterMatch = document.querySelectorAll('.letters li') // select all the li elements 
+        for (let i = 0; i < letterMatch.length; i ++) { // looping through the list elements 
+         if (letterMatch[i].name === letter) { // if the name in the iterated li element has a name that matches the letter...
+                letterMatch[i].className = `show letter ${letter}` // change the list items class name to show letter so that it can be displayed
             }
         }
-      
     };
 }
 
