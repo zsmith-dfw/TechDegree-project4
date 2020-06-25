@@ -41,22 +41,16 @@ checkLetter(letter) {
     }
 };
 
-
-// if letter selected by player is in phrase, return true, else return false
-
 /**
 * Displays passed letter on screen after a match is found
 * @param (string) letter - Letter to display
 */
 showMatchedLetter(letter) {
-
-    if (this.checkLetter() === true) {
-        this.li.className = `show letter ${letter}`
-
-    }
-
-};
+        let letterMatch = document.querySelector('.letters li')
+        console.log(letterMatch)
+        if (this.checkLetter(letter) === true) {
+            letterMatch.className = `show letter ${letter}`
+        }
+    };
 }
 
-// if (this.checkLetter() = true) {
-//     this.li.className = `show letter ${letter}`
