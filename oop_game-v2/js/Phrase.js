@@ -46,11 +46,14 @@ checkLetter(letter) {
 * @param (string) letter - Letter to display
 */
 showMatchedLetter(letter) {
-        let letterMatch = document.querySelector('.letters li')
+        let letterMatch = document.querySelectorAll('.letters li')
         console.log(letterMatch)
-        if (this.checkLetter(letter) === true) {
-            letterMatch.className = `show letter ${letter}`
+        for (let i = 0; i < letterMatch.length; i ++) {
+         if (this.checkLetter(letterMatch[i]) === true) {
+                letterMatch.className = `show letter ${letterMatch[i]}`
+            }
         }
+      
     };
 }
 
