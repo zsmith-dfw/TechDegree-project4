@@ -48,10 +48,9 @@ checkLetter(letter) {
 showMatchedLetter(letter) {
         let letterMatch = document.querySelectorAll('.letters li') // select all the li elements 
         for (let i = 0; i < letterMatch.length; i ++) { // looping through the list elements 
-         if (letterMatch[i].classList.contains(`${this.characters[i]}`) ) { // if the name in the iterated li element has a name that matches the letter...
+         if (letterMatch[i].classList.contains(`${letter[i]}`) ) { // if the name in the iterated li element has a name that matches the letter...
                 letterMatch[i].className = `show letter ${letter}` // change the list items class name to show letter so that it can be displayed
             }
         }
     };
 }
-
