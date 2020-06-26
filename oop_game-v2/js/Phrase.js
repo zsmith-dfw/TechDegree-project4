@@ -7,7 +7,7 @@ class Phrase {
 * Display phrase on game board
 */
 addPhraseToDisplay() {
-// const phraseId = document.querySelector('#phrase') // probably don't need this anymore
+
 const listId = document.querySelector('ul')
 listId.className ='letters'
 console.log(listId)
@@ -18,7 +18,7 @@ const regex = new RegExp(/[a-z]/i)
             if (regex.test(characters[i])) {
                 let li = document.createElement('li')
                 li.className = `hide letter ${characters[i]}`
-                li.setAttribute("name", `${characters[i]}` ) // setting the list items to a custom attribute with only the letter
+                li.innerHTML = `${characters[i]}`
                 listId.appendChild(li)
                 
             } else {
@@ -51,8 +51,8 @@ showMatchedLetter(letter) {
         for (let i = 0; i < letterMatch.length; i ++) { // looping through the list elements 
          if (letterMatch[i].classList.contains(`${letter}`) ) { // if the name in the iterated li element has a name that matches the letter...
                 letterMatch[i].className = `show letter ${letter}` // change the list items class name to show letter so that it can be displayed
-                letterMatch[i].innerText = `${letter}`
+                letterMatch[i].innerHTML = `${letter}`
             }
         }
-    };
+    }
 }

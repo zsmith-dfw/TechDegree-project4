@@ -30,19 +30,15 @@ getRandomPhrase() {
 * Begins game by selecting a random phrase and displaying it to user
 */
 startGame() {
-console.log(this)
-const hideStart = document.querySelector('#overlay')
-hideStart.style.display = 'none'
-this.getRandomPhrase()
-this.activePhrase = this.getRandomPhrase()
-this.activePhrase.addPhraseToDisplay(Phrase)
-
-
+    console.log(this)
+    const hideStart = document.querySelector('#overlay')
+    hideStart.style.display = 'none'
+    this.getRandomPhrase()
+    this.activePhrase = this.getRandomPhrase()
+    this.activePhrase.addPhraseToDisplay(Phrase)
 };
 
 handleInteraction () {
-    // checkLetter(letter)
-    // showMatchedLetter(letter)
 
 }
 
@@ -51,20 +47,18 @@ handleInteraction () {
 * @return {boolean} True if game has been won, false if game wasn't
 won
 */
-checkForWin() {};
-/**
-* Increases the value of the missed property
-* Removes a life from the scoreboard
-* Checks if player has remaining lives and ends game if player is out
-*/
-removeLife() {};
+checkForWin() {
+    let win = false
+    let hiddenLetters = this.activePhrase.showMatchedLetter(Phrase)
+    hiddenLetters = document.getElementsByClassName('hide').length
+    console.log(hiddenLetters)
+        if (hiddenLetters === 0) {
+            for (let i = 0; i < something; i ++) {
 
-/**
-* Displays game over message
-* @param {boolean} gameWon - Whether or not the user won the game
-*/
-gameOver(gameWon) {};
-
+            }
+            win = true
+            return win
+        };
+    }
 }
 
-// return this.activePhrase.phrase
