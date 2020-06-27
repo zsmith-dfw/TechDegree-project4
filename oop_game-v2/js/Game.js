@@ -66,12 +66,15 @@ checkForWin() {
 * Checks if player has remaining lives and ends game if player is out
 */
 removeLife() {
-    if (this.activePhrase.checkLetter() === false) {
-        this.missed ++
-       
+    const hearts = document.querySelector('ol')
+    hearts.className ='hearts'
+    let score = document.querySelectorAll('.hearts li')
+    console.log(score)
+        for (let i = 0; i < score.length; i ++)
+        score[i].src = "image/lostHeart.png"
+            if (this.activePhrase.checkLetter() === false) {
+                this.missed ++
+        }
     }
-    
-    // if checkletter returns false, increase missed by 1 
-};
 }
 
