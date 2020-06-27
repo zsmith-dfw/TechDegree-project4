@@ -53,12 +53,25 @@ checkForWin() {
     hiddenLetters = document.getElementsByClassName('hide').length
     console.log(hiddenLetters)
         if (hiddenLetters === 0) {
-            for (let i = 0; i < something; i ++) {
-
-            }
             win = true
             return win
-        };
+        } else {
+            win = false
+            return win 
+        }
     }
+    /**
+* Increases the value of the missed property
+* Removes a life from the scoreboard
+* Checks if player has remaining lives and ends game if player is out
+*/
+removeLife() {
+    if (this.activePhrase.checkLetter() === false) {
+        this.missed ++
+       
+    }
+    
+    // if checkletter returns false, increase missed by 1 
+};
 }
 
