@@ -22,21 +22,21 @@ createPhrases() {
 * @return {Object} Phrase object chosen to be used
 */
 getRandomPhrase() {
-    const phrase = this.phrases[Math.floor(Math.random() * this.phrases.length)];
+    const phrase = this.phrases[Math.floor(Math.random() * this.phrases.length)]
     return phrase; 
-};
+}
 
 /**
 * Begins game by selecting a random phrase and displaying it to user
 */
 startGame() {
     console.log(this)
-    const hideStart = document.querySelector('#overlay')
+    let hideStart = document.querySelector('#overlay')
     hideStart.style.display = 'none'
     this.getRandomPhrase()
     this.activePhrase = this.getRandomPhrase()
     this.activePhrase.addPhraseToDisplay(Phrase)
-};
+}
 
 handleInteraction () {
 
@@ -54,10 +54,11 @@ checkForWin() {
     console.log(hiddenLetters)
         if (hiddenLetters === 0) {
             win = true
-            return win
+            this.gameOver(true)
+            return win;
         } else {
             win = false
-            return win 
+            return win; 
         }
     }
     /**
@@ -66,15 +67,49 @@ checkForWin() {
 * Checks if player has remaining lives and ends game if player is out
 */
 removeLife() {
-    const hearts = document.querySelector('ol')
-    hearts.className ='hearts'
-    let score = document.querySelectorAll('.hearts li')
+    const hearts = document.querySelector('ol') // selecting the only ordered list item in index.html
+    hearts.className ='hearts' // give it class of hearts
+    let score = document.querySelector('.hearts img') // store the first img tag in the list
+    let tries = document.querySelector('.tries')
     console.log(score)
-        for (let i = 0; i < score.length; i ++)
-        score[i].src = "image/lostHeart.png"
-            if (this.activePhrase.checkLetter() === false) {
-                this.missed ++
+            if (this.activePhrase.checkLetter(this.letter) === false) { // if this method is called
+               
+                this.missed ++ // we will add one to missed 
+                score.src = "images/lostHeart.png" // change image to lost heart 
+                tries.className = 'fails'
+                
         }
+            if (this.missed >= 5) {
+                this.gameOver(false)
+                console.log('the game is lost')
+            }
+}
+
+/**
+* Displays game over message
+* @param {boolean} gameWon - Whether or not the user won the game
+*/
+gameOver(gameWon) {
+
+    const gameOverMessage = document.getElementById('game-over-message')
+    const gameOverScreen = document.querySelector('.start')
+    const showStart = document.querySelector('#overlay')
+    if (true) {
+    
+    showStart.style.display = 'block'
+    gameOverMessage.innerHTML = 'The Mojave is saved...for now. For war...war never changes.'
+    gameOverScreen.className = 'win'
+    console.log('the game is won')
     }
+
+    if (false) {
+        showStart.style.display = 'block'
+        gameOverMessage.innerHTML = 'The Mojave is lost...for now. For war...war never changes.'
+        gameOverScreen.className = 'lose'
+        console.log('the game is lost')
+
+    }
+
+}
 }
 
