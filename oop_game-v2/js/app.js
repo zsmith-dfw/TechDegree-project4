@@ -34,6 +34,15 @@ startButton.addEventListener('click', (e) => {
 game.startGame()
 })
 
+const letter = document.getElementById('qwerty')
+console.log(letter)
+letter.addEventListener('click', (event) => {
+  if (event.target.tagName === 'BUTTON') {
+    game.handleInteraction()
+     }
+  })
+
+
 
 
 
