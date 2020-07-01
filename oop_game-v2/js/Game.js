@@ -38,10 +38,6 @@ startGame() {
     this.activePhrase.addPhraseToDisplay(Phrase)
 }
 
-handleInteraction () {
-
-}
-
 /**
 * Checks for winning move
 * @return {boolean} True if game has been won, false if game wasn't
