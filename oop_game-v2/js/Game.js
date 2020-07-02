@@ -114,7 +114,24 @@ else{
 */
 handleInteraction(button) {
     console.log(button);
-    };
+
+if (this.activePhrase.checkLetter(button.innerHTML) === false) {
+    button.disabled = true
+    button.className = 'wrong'
+    this.removeLife()
+
+} else {
+    button.disabled = true
+    button.className = 'chosen'
+    this.activePhrase.showMatchedLetter(letter)
+    this.checkForWin()
+        if (this.checkForWin() === true) {
+            this.gameOver()
+        }
+}
+
+
+}
 
 }
 

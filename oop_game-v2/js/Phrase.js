@@ -39,7 +39,7 @@ checkLetter(letter) {
     } else {
         return false 
     }
-};
+}
 
 /**
 * Displays passed letter on screen after a match is found
