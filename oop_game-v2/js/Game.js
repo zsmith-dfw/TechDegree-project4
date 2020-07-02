@@ -50,7 +50,7 @@ checkForWin() {
     console.log(hiddenLetters)
         if (hiddenLetters === 0) {
             win = true
-            this.gameOver = true
+            this.gameOver(true) 
             return win;
         } else {
             win = false
