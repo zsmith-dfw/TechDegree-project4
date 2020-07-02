@@ -69,7 +69,6 @@ removeLife() {
     let tries = document.querySelector('.tries')
     console.log(score)
             if (this.activePhrase.checkLetter(this.letter) === false) { // if this method is called
-               
                 this.missed ++ // we will add one to missed 
                 score.src = "images/lostHeart.png" // change image to lost heart 
                 tries.className = 'fails'
@@ -121,17 +120,15 @@ if (this.activePhrase.checkLetter(button.innerHTML) === false) {
     this.removeLife()
 
 } else {
+
     button.disabled = true
     button.className = 'chosen'
-    this.activePhrase.showMatchedLetter(letter)
+    this.activePhrase.showMatchedLetter(button.innerHTML)
     this.checkForWin()
         if (this.checkForWin() === true) {
-            this.gameOver()
+            this.gameOver() 
         }
 }
-
-
 }
-
 }
 
