@@ -10,7 +10,7 @@ addPhraseToDisplay() {
 
 const listId = document.querySelector('ul')
 listId.className ='letters'
-console.log(listId)
+
 const characters = this.phrase.split("")
 console.log(characters)
 const regex = new RegExp(/[a-z]/i)
@@ -46,7 +46,6 @@ checkLetter(letter) {
 * @param (string) letter - Letter to display
 */
 showMatchedLetter(letter) {
-    console.log(letter)
         let letterMatch = document.querySelectorAll('.letters li') // select all the li elements 
         for (let i = 0; i < letterMatch.length; i ++) { // looping through the list elements 
          if (letterMatch[i].classList.contains(`${letter}`) ) { // if the name in the iterated li element has a name that matches the letter...

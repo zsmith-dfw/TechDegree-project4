@@ -30,13 +30,13 @@ getRandomPhrase() {
 * Begins game by selecting a random phrase and displaying it to user
 */
 startGame() {
-    console.log(this)
+  
     let hideStart = document.querySelector('#overlay')
     hideStart.style.display = 'none'
     this.getRandomPhrase()
     this.activePhrase = this.getRandomPhrase()
     this.activePhrase.addPhraseToDisplay(Phrase)
-    this.resetGame()
+
 }
 
 /**
@@ -47,8 +47,8 @@ won
 checkForWin() {
     let win = false
     let hiddenLetters = this.activePhrase.showMatchedLetter(Phrase)
-    hiddenLetters = document.getElementsByClassName('hide').length
     console.log(hiddenLetters)
+    hiddenLetters = document.getElementsByClassName('hide').length
         if (hiddenLetters === 0) {
             win = true
             this.gameOver(true) 
@@ -68,7 +68,6 @@ removeLife() {
     hearts.className ='hearts' // give it class of hearts
     let score = document.querySelector('.tries img') // store the first img tag in the list
     let tries = document.querySelector('.tries')
-    console.log(score)
             if (this.activePhrase.checkLetter(this.letter) === false) { // if this method is called
                 this.missed ++ // we will add one to missed 
                 score.src = "images/lostHeart.png" // change image to lost heart 
@@ -77,7 +76,10 @@ removeLife() {
         }
             if (this.missed >= 5) {
                 this.gameOver()
-                console.log('the game is lost')
+                this.missed = 0
+                let allFails = document.querySelectorAll('.fails')
+                allFails.className = 'tries'
+                score.src = 'images/lostHeart.png'
             }
 }
 
@@ -86,7 +88,7 @@ removeLife() {
 * @param {boolean} gameWon - Whether or not the user won the game
 */
 gameOver(gameWon) {
-
+    // this.resetGame()
     const gameOverMessage = document.getElementById('game-over-message')
     const gameOverScreen = document.querySelector('.start')
     const showStart = document.querySelector('#overlay')
@@ -95,14 +97,13 @@ gameOver(gameWon) {
     showStart.style.display = 'block'
     gameOverMessage.innerHTML = 'The Mojave is saved...for now. For war...war never changes.'
     gameOverScreen.className = 'win'
-    console.log('the game is won')
+    
     }
 
 else{
         showStart.style.display = 'block'
         gameOverMessage.innerHTML = 'The Mojave is lost...for now. For war...war never changes.'
         gameOverScreen.className = 'lose'
-        console.log('the game is lost')
 
     }
 }
@@ -112,7 +113,7 @@ else{
 * @param (HTMLButtonElement) button - The clicked button element
 */
 handleInteraction(button) {
-    console.log(button);
+
 
 if (this.activePhrase.checkLetter(button.innerHTML) === false) {
     button.disabled = true
@@ -132,9 +133,16 @@ if (this.activePhrase.checkLetter(button.innerHTML) === false) {
 }
 
 resetGame() {
-// this.phrase.addPhraseToDisplay('listId')
+    const listId = document.querySelector('ul')
+    listId.innerHTML = ''
+
+    let chosen = document.querySelectorAll('.chosen')
+    let wrong = document.querySelectorAll('wrong')
+    chosen.className('key')
+    wrong.className('key')
+    chosen.disabled = false
+    wrong.disabled = false 
 // i am trying to select the variable "listId" which contains all of the created list elements and then i want to removeChild on those elements
 // intent is for startGame() to call resetGame()
 }
 }
-
