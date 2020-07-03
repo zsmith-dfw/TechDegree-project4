@@ -36,6 +36,7 @@ startGame() {
     this.getRandomPhrase()
     this.activePhrase = this.getRandomPhrase()
     this.activePhrase.addPhraseToDisplay(Phrase)
+    this.resetGame()
 }
 
 /**
@@ -104,7 +105,6 @@ else{
         console.log('the game is lost')
 
     }
-
 }
 
 /**
@@ -129,6 +129,12 @@ if (this.activePhrase.checkLetter(button.innerHTML) === false) {
             this.gameOver() 
         }
 }
+}
+
+resetGame() {
+// this.phrase.addPhraseToDisplay('listId')
+// i am trying to select the variable "listId" which contains all of the created list elements and then i want to removeChild on those elements
+// intent is for startGame() to call resetGame()
 }
 }
 
