@@ -30,7 +30,7 @@ getRandomPhrase() {
 * Begins game by selecting a random phrase and displaying it to user
 */
 startGame() {
-  
+    this.resetGame()
     let hideStart = document.querySelector('#overlay')
     hideStart.style.display = 'none'
     this.getRandomPhrase()
@@ -76,10 +76,7 @@ removeLife() {
         }
             if (this.missed >= 5) {
                 this.gameOver()
-                this.missed = 0
-                let allFails = document.querySelectorAll('.fails')
-                allFails.className = 'tries'
-                score.src = 'images/lostHeart.png'
+
             }
 }
 
@@ -88,7 +85,7 @@ removeLife() {
 * @param {boolean} gameWon - Whether or not the user won the game
 */
 gameOver(gameWon) {
-    // this.resetGame()
+  
     const gameOverMessage = document.getElementById('game-over-message')
     const gameOverScreen = document.querySelector('.start')
     const showStart = document.querySelector('#overlay')
@@ -104,7 +101,6 @@ else{
         showStart.style.display = 'block'
         gameOverMessage.innerHTML = 'The Mojave is lost...for now. For war...war never changes.'
         gameOverScreen.className = 'lose'
-
     }
 }
 
@@ -135,14 +131,28 @@ if (this.activePhrase.checkLetter(button.innerHTML) === false) {
 resetGame() {
     const listId = document.querySelector('ul')
     listId.innerHTML = ''
-
     let chosen = document.querySelectorAll('.chosen')
-    let wrong = document.querySelectorAll('wrong')
-    chosen.className('key')
-    wrong.className('key')
-    chosen.disabled = false
-    wrong.disabled = false 
-// i am trying to select the variable "listId" which contains all of the created list elements and then i want to removeChild on those elements
-// intent is for startGame() to call resetGame()
+    let wrong = document.querySelectorAll('.wrong')
+    for (let i = 0; i < chosen.length; i ++) {
+        chosen[i].className = 'key'
+        chosen[i].disabled = false
+    }
+    for (let i = 0; i < wrong.length; i ++) {
+        wrong[i].className = 'key'
+        wrong[i].disabled = false
+        this.missed = 0
+        console.log(this.missed)
+    }
+    let allFails = document.querySelectorAll('.fails')
+    for (let i = 0; i < allFails.length; i ++) {
+        allFails[i].className = 'tries'
+    }
+    allFails.className = 'tries'
+
+    let score = document.querySelectorAll('.tries img')
+    for (let i = 0; i < score.length; i ++) {
+        score[i].src = 'images/liveHeart.png'
+    }
+
 }
 }
