@@ -87,20 +87,20 @@ removeLife() {
 gameOver(gameWon) {
   
     const gameOverMessage = document.getElementById('game-over-message')
-    const gameOverScreen = document.querySelector('.start')
+    // const gameOverScreen = document.querySelector('.start')
     const showStart = document.querySelector('#overlay')
 
     if (gameWon === true) {
     showStart.style.display = 'block'
     gameOverMessage.innerHTML = 'The Mojave is saved...for now. For war...war never changes.'
-    gameOverScreen.className = 'win'
+    showStart.className = 'win'
     
     }
 
 else{
         showStart.style.display = 'block'
         gameOverMessage.innerHTML = 'The Mojave is lost...for now. For war...war never changes.'
-        gameOverScreen.className = 'lose'
+        showStart.className = 'lose'
     }
 }
 
