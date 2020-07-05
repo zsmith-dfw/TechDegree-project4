@@ -51,7 +51,7 @@ checkForWin() {
     hiddenLetters = document.getElementsByClassName('hide').length
         if (hiddenLetters === 0) {
             win = true
-            this.gameOver(true) 
+            // this.gameOver(true) 
             return win;
         } else {
             win = false
@@ -90,7 +90,7 @@ gameOver(gameWon) {
     // const gameOverScreen = document.querySelector('.start')
     const showStart = document.querySelector('#overlay')
 
-    if (gameWon === true) {
+    if (this.checkForWin(true)) {
     showStart.style.display = 'block'
     gameOverMessage.innerHTML = 'The Mojave is saved...for now. For war...war never changes.'
     showStart.className = 'win'
